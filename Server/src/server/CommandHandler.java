@@ -1,7 +1,6 @@
 package server;
 
-import dao.DAOException;
-import dao.UserDAO;
+import dao.*;
 import model.Client;
 
 import java.io.IOException;
@@ -10,9 +9,12 @@ import java.io.ObjectOutputStream;
 
 public class CommandHandler {
 
-    /*Сюда пишешь ту же самую хуйню для своих дао
-     * точно также как и для юзера*/
+
     private UserDAO dao = new UserDAO();
+    private MasterDAO masterDao = new MasterDAO();
+    private TimeTableDAO timetableDao = new TimeTableDAO();
+    private ProcedureDAO procedureDao = new ProcedureDAO();
+    private DiscountDAO discountDao = new DiscountDAO();
 
     private ObjectInputStream inputStream;
     private ObjectOutputStream outputStream;
@@ -29,8 +31,7 @@ public class CommandHandler {
         String comand = message[1];
         switch (comandNumberStr) {
 
-            /*здесь ты пишешь все свои юзкейсы
-             * в которых ты вызываешь дао и либо получаешь что то либо отправляешь*/
+
 
             case "logIn": {
                 String[] values = comand.split(" ", 2);
@@ -46,7 +47,7 @@ public class CommandHandler {
                 post(client1);
                 break;
             }
-            /*тебе надо сделать все тоже самое только для остальных*/
+
 
 
             case "sighUp": {
@@ -72,6 +73,45 @@ public class CommandHandler {
                 }
                 break;
             }
+
+
+            case "discountsTable": {
+                try {
+                    outputStream.writeObject(dao.getAllUsers());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+
+            case "mastersTable": {
+                try {
+                    outputStream.writeObject(dao.getAllUsers());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+            case "proceduresTable": {
+                try {
+                    outputStream.writeObject(dao.getAllUsers());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+            case "timetableTable": {
+                try {
+                    outputStream.writeObject(dao.getAllUsers());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
         }
     }
 
