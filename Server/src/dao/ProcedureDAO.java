@@ -1,4 +1,4 @@
-/*
+
 package dao;
 
 
@@ -12,58 +12,57 @@ import java.util.List;
 public class ProcedureDAO extends BaseEntityDao<Procedure, Long> {
 
     private static final String SQL_UPDATE_PROCEDURE_BY_ID =
-            "UPDATE Master SET name = ?, salary = ?,  phone_number=?, id_proc = ? WHERE id_master = ?";
+            "UPDATE Procedure SET type = ?, price = ?, id_discount = ? WHERE id_proc = ?";
     private static final String SQL_GET_PROCEDURE_BY_ID =
-            "SELECT * FROM Master WHERE id_master=?";
+            "SELECT * FROM Procedure WHERE id_procedure=?";
 
     private static final String SQL_CREATE_PROCEDURE =
-            "INSERT INTO Master (name, salary,  phone_number, id_proc, id_master) VALUES (?,?,?,?,?)";
+            "INSERT INTO Procedure (type, price,   id_proc, id_discount) VALUES (?,?,?,?)";
 
     private static final String SQL_DELETE_PROCEDURE_BY_ID =
-            "DELETE FROM Master WHERE id_master=?";
+            "DELETE FROM Procedure WHERE id_procedure=?";
 
     private static final String SQL_GET_ALL =
-            "SELECT Master.id_master, Master.name, Master.salary, Master.phone_number, Master.id_proc, Procedure.id_proc, Procedure.proc_type, Procedure.price\n" +
-                    "FROM Master\n" +
-                    "INNER JOIN Procedure\n" +
-                    "ON Master.id_proc=Procedure.id_proc;";
+            "SELECT Procedure.id_proc, Procedure.type, Procedure.price, Procedure.id_proc, Procedure.id_discount, Discount.id_discount, Discount.date, Discount.id_proc\n" +
+                    "FROM Procedure\n" +
+                    "INNER JOIN Discount\n" +
+                    "ON Procedure.id_proc=Discount.id_proc;";
 
 
-    private final EntityMapper<Master> masterMapper = new EntityMapper<Master>() {
+    private final EntityMapper<Procedure> procedureMapper = new EntityMapper<Procedure>() {
         //ЭТО ДЛЯ ГЕТ
         @Override
-        public Master parse(ResultSet rs) throws SQLException {
-            Master master = new Master();
-            master.setId(rs.getLong("id_master"));
-            master.setName(rs.getString("name"));
-            master.setSalary(rs.getBigDecimal("salary"));
-            master.setPhoneNumber(rs.getString("phone_number"));
-            master.setProcedure(rs.getLong("id_proc"));
+        public Procedure parse(ResultSet rs) throws SQLException {
+            Procedure procedure = new Procedure();
+            procedure.setId(rs.getLong("id_proc"));
+            procedure.setType(rs.getString("name"));
+            procedure.setCost(rs.getBigDecimal("salary"));
+            procedure.setDiscount(rs.getInt("id_proc"));
 
-            return master;
+            return procedure;
         }
 
         @Override
-        public void write(PreparedStatement st, Master master) throws SQLException {
-            st.setString(1, master.getName());
-            st.setBigDecimal(2, master.getSalary());
-            st.setString(3, master.getPhoneNumber());
-            st.setLong(4, master.getProcedure());
-            if (master.getId() != null) {
-                st.setLong(5, master.getId());
+        public void write(PreparedStatement st, Procedure procedure) throws SQLException {
+            st.setString(1, procedure.getType());
+            st.setBigDecimal(2, procedure.getCost());
+            st.setLong(3, procedure.getDiscount());
+
+            if (procedure.getId() != null) {
+                st.setLong(4, procedure.getId());
             }
         }
     };
 
     @Override
-    public Master getById(Long id) throws DAOException {
-        return super.getById(id, masterMapper, SQL_GET_PROCEDURE_BY_ID);
+    public Procedure getById(Long id) throws DAOException {
+        return super.getById(id, procedureMapper, SQL_GET_PROCEDURE_BY_ID);
     }
 
     @Override
-    public Master update(Master master) throws DAOException {
-        super.update(master, masterMapper, SQL_UPDATE_PROCEDURE_BY_ID);
-        return getById(master.getId());
+    public Procedure update(Procedure procedure) throws DAOException {
+        super.update(procedure, procedureMapper, SQL_UPDATE_PROCEDURE_BY_ID);
+        return getById(procedure.getId());
     }
 
     @Override
@@ -73,12 +72,12 @@ public class ProcedureDAO extends BaseEntityDao<Procedure, Long> {
     }
 
     @Override
-    public boolean create(Master master) throws DAOException {
-        return super.update(master, masterMapper, SQL_CREATE_PROCEDURE);
+    public boolean create(Procedure procedure) throws DAOException {
+        return super.update(procedure, procedureMapper, SQL_CREATE_PROCEDURE);
     }
 
-    public List<Master> getAllUsers() throws DAOException {
-        return super.findAll(masterMapper, SQL_GET_ALL);
+    public List<Procedure> getAllProcedures() throws DAOException {
+        return super.findAll(procedureMapper, SQL_GET_ALL);
     }
 }
-*/
+

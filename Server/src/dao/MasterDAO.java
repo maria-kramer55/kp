@@ -76,7 +76,7 @@ public class MasterDAO extends BaseEntityDao<Master, Long> {
         return super.update(master, masterMapper, SQL_CREATE_MASTER);
     }
 
-    public List<Master> getAllUsers() throws DAOException {
+    public List<Master> getAllMasters() throws DAOException {
         return super.findAll(masterMapper, SQL_GET_ALL);
     }
 }

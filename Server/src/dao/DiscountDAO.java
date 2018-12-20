@@ -1,8 +1,6 @@
 package dao;
 
-import model.Client;
 import model.Discount;
-
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -77,7 +75,7 @@ public class DiscountDAO extends BaseEntityDao<Discount, Long> {
         return super.update(discount, discountMapper, SQL_CREATE_DISCOUNT);
     }
 
-    public List<Discount> getAllUsers() throws DAOException {
+    public List<Discount> getAllDiscounts() throws DAOException {
         return super.findAll(discountMapper, SQL_GET_ALL);
     }
 }

@@ -1,34 +1,35 @@
 package model;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class TimeTable extends Entity<Long> {
-    private LocalDateTime dateTime;
-    private Client client;
-    private Procedure procedure;
+    private Date dateTime;
+    private long client;
+    private long procedure;
 
-    public LocalDateTime getDateTime() {
+    public Date getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
+    public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
     }
 
-    public Client getClient() {
+    public long getClient() {
         return client;
     }
 
-    public void setClient(Client client) {
+    public void setClient(long client) {
         this.client = client;
     }
 
-    public Procedure getProcedure() {
+    public long getProcedure() {
         return procedure;
     }
 
-    public void setProcedure(Procedure procedure) {
+    public void setProcedure(long procedure) {
         this.procedure = procedure;
     }
 

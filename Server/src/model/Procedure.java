@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Procedure extends Entity<Long> {
     private String type;
     private BigDecimal cost;
-    private Discount discount;
+    private int discount;
 
     public String getType() {
         return type;
@@ -24,11 +24,11 @@ public class Procedure extends Entity<Long> {
         this.cost = cost;
     }
 
-    public Discount getDiscount() {
+    public long getDiscount() {
         return discount;
     }
 
-    public void setDiscount(Discount discount) {
+    public void setDiscount(int discount) {
         this.discount = discount;
     }
 
