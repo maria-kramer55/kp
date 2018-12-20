@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #00ffb3; -fx-border-width: 2; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.UserMenu_Controller">
+    <children>
+        <TableView fx:id="ClientTable" layoutX="14.0" layoutY="181.0" prefHeight="239.0" prefWidth="872.0" style="-fx-background-color: #00ffb3; -fx-border-color: #000000;">
+            <columns>
+                <TableColumn fx:id="orderNumber" minWidth="0.0" prefWidth="43.0" text="№" />
+                <TableColumn fx:id="orderDate" prefWidth="99.0" text="Дата" />
+                <TableColumn fx:id="orderService" prefWidth="180.0" text="Услуга" />
+                <TableColumn fx:id="orderMaster" prefWidth="199.0" text="Мастер" />
+                <TableColumn fx:id="orderMaterial" prefWidth="218.0" text="Материал" />
+                <TableColumn fx:id="orderPrice" prefWidth="131.0" text="Цена" />
+            </columns>
+        </TableView>
+        <Button fx:id="newOrderButton" layoutX="672.0" layoutY="14.0" mnemonicParsing="false" onAction="#createNewOrder" prefHeight="22.0" prefWidth="214.0" style="-fx-background-color: #00ccff;" text="Новая запись">
+        <font>
+            <Font name="YesevaOne" size="21.0" />
+        </font>
+    </Button>
+      <Label fx:id="clientName" layoutX="14.0" layoutY="14.0" text="khklhff" textFill="RED">
+         <font>
+            <Font name="YesevaOne" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="313.0" layoutY="102.0" text="Текущие записи">
+         <font>
+            <Font name="YesevaOne" size="32.0" />
+         </font>
+      </Label>
+      <Button fx:id="orderDeleter" layoutX="725.0" layoutY="428.0" mnemonicParsing="false" onAction="#deleteOrder" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #00ccff;" text="Отменить запись">
+         <font>
+            <Font name="YesevaOne" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="updateBttn" layoutX="799.0" layoutY="154.0" mnemonicParsing="false" onAction="#updateTable" prefHeight="25.0" prefWidth="86.0" style="-fx-background-color: #00ccff;" text="Обновить">
+         <font>
+            <Font name="YesevaOne" size="13.0" />
+         </font>
+      </Button>
+    </children>
+
+
+</AnchorPane>
