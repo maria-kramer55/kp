@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5cd726db-24ad-4d90-95bc-2d1fd6730f2e" name="Default Changelist" comment="v5">
-      <change afterPath="$PROJECT_DIR$/src/dao/TimeTableDAO.java" afterDir="false" />
+    <list default="true" id="5cd726db-24ad-4d90-95bc-2d1fd6730f2e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DiscountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DiscountDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/MasterDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/MasterDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/ProcedureDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ProcedureDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Procedure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Procedure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/TimeTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/TimeTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/CommandHandler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -65,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/server/CommandHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
+            <state relative-caret-position="-395">
+              <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,7 +116,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Procedure.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
@@ -195,11 +189,11 @@
         <option value="$PROJECT_DIR$/src/model/Entity.java" />
         <option value="$PROJECT_DIR$/src/dao/MasterDAO.java" />
         <option value="$PROJECT_DIR$/src/dao/ProcDAO.java" />
-        <option value="$PROJECT_DIR$/src/server/CommandHandler.java" />
         <option value="$PROJECT_DIR$/src/dao/ProcedureDAO.java" />
         <option value="$PROJECT_DIR$/src/dao/DiscountDAO.java" />
         <option value="$PROJECT_DIR$/src/model/TimeTable.java" />
         <option value="$PROJECT_DIR$/src/model/Procedure.java" />
+        <option value="$PROJECT_DIR$/src/server/CommandHandler.java" />
       </list>
     </option>
   </component>
@@ -264,7 +258,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545303398487" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545304336177" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -338,7 +332,7 @@
       <workItem from="1545293329720" duration="1296000" />
       <workItem from="1545299609473" duration="355000" />
       <workItem from="1545300015493" duration="548000" />
-      <workItem from="1545302814081" duration="565000" />
+      <workItem from="1545302814081" duration="1321000" />
     </task>
     <task id="LOCAL-00001" summary="server">
       <created>1545299734992</created>
@@ -347,17 +341,24 @@
       <option name="project" value="LOCAL" />
       <updated>1545299734992</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="v5">
+      <created>1545303446142</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1545303446142</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176423000" />
+    <option name="totallyTimeSpent" value="177179000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20134228" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20134228" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -366,7 +367,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5934844" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947917" weight="0.4716714" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947917" visible="true" weight="0.04674221" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.20538244" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -375,7 +376,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005208" side_tool="true" weight="0.2595339" />
-      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.27478755" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.27478755" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32944915" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="SonarLint" order="14" />
@@ -416,7 +417,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/server/CommandHandler.java</url>
-          <line>22</line>
+          <line>25</line>
           <properties class="server.CommandHandler">
             <option name="EMULATED" value="true" />
           </properties>
@@ -587,16 +588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/CommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/ProcedureDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -613,6 +604,16 @@
             <element signature="e#537#538#0" expanded="true" />
             <element signature="e#587#588#0" expanded="true" />
             <element signature="e#627#628#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/CommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-395">
+          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
