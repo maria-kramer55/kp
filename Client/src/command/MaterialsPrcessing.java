@@ -1,10 +1,10 @@
-package client;/*
-package client;
+package command;/*
+package command;
 
 import model.Material;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import Enum.ConnectInstance;
+import connection.ConnectInstance;
 import java.util.ArrayList;
 
 public class MaterialsPrcessing {

@@ -4,11 +4,11 @@ package sample.Controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import client.OrdersProcessing;
+import command.OrdersProcessing;
 import model.Order;
-import Enum.TransitionInstance;
-import Enum.ConnectInstance;
-import client.LogIn;
+import connection.TransitionInstance;
+import connection.ConnectInstance;
+import command.client.LogIn;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

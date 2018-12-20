@@ -1,8 +1,8 @@
 package sample.Controllers;
 
-import Enum.ConnectInstance;
-import Enum.TransitionInstance;
-import client.LogIn;
+import connection.ConnectInstance;
+import connection.TransitionInstance;
+import command.client.LogIn;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,7 +43,8 @@ public class LogIN_Controller {
         if (LogIN_login.getText() != null && LogIN_Password.getText() != null) {
             ConnectInstance.INSTANCE.getInstance().post("logIn " + LogIN_login.getText().trim() + " " + LogIN_Password.getText().trim());
         } else AlertBox.display("WARNING", "Заполните все поля!");
-        LogIn.access();
+        LogIn logIn = new LogIn();
+        logIn.processServerMessage();
         LogIN_Button.getScene().getWindow().hide();
         TransitionInstance.INSTANCE.getInstance().transit("/sample/Scenes/DirectorWork.fxml");
     }

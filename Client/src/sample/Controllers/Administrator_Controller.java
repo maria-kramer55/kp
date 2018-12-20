@@ -5,7 +5,7 @@ import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-import client.OrdersProcessing;
+import command.OrdersProcessing;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,8 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import model.Order;
-import Enum.ConnectInstance;
-import Enum.TransitionInstance;
+import connection.ConnectInstance;
+import connection.TransitionInstance;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.AlertBox;
 

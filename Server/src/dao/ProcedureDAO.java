@@ -1,3 +1,4 @@
+/*
 package dao;
 
 
@@ -80,3 +81,4 @@ public class ProcedureDAO extends BaseEntityDao<Procedure, Long> {
         return super.findAll(masterMapper, SQL_GET_ALL);
     }
 }
+*/

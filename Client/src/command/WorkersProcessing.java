@@ -1,8 +1,8 @@
-package client;/*
-package client;
+package command;/*
+package command;
 
 import model.Worker;
-import  Enum.ConnectInstance;
+import  connection.ConnectInstance;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

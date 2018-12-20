@@ -1,4 +1,4 @@
-package Enum;
+package connection;
 
 import sample.FXMLTransition;
 

@@ -4,9 +4,9 @@ package sample.Controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import client.MaterialsPrcessing;
-import client.ServicesProcessing;
-import client.WorkersProcessing;
+import command.MaterialsPrcessing;
+import command.ServicesProcessing;
+import command.WorkersProcessing;
 import model.Material;
 import model.Service;
 import model.Worker;
@@ -17,7 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import Enum.ConnectInstance;
+import connection.ConnectInstance;
 import sample.AlertBox;
 
 

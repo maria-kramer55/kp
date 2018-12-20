@@ -1,7 +1,7 @@
 package sample.Controllers;
 
-import Enum.ConnectInstance;
-import Enum.TransitionInstance;
+import connection.ConnectInstance;
+import connection.TransitionInstance;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

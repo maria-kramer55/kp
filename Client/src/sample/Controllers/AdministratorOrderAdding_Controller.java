@@ -5,8 +5,8 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-import client.MaterialsPrcessing;
-import client.ServicesProcessing;
+import command.MaterialsPrcessing;
+import command.ServicesProcessing;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +15,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import Enum.ConnectInstance;
+import connection.ConnectInstance;
 import sample.AlertBox;
 
 public class AdministratorOrderAdding_Controller {
