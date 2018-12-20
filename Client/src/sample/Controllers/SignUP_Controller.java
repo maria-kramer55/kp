@@ -1,13 +1,13 @@
 package sample.Controllers;
 
-import command.Connection;
-import connection.TransitionInstance;
+import connection.Connection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import connection.FXMLTransition;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -51,7 +51,7 @@ public class SignUP_Controller {
 
         Connection.getInstance().post("sighUp "+signUpName.getText()+" "+signUpLastName.getText()+" "+gender+" "+signUpLogin.getText()+" "+signUpPassword.getText());
         signUpCheckBoxFemale.getScene().getWindow().hide();
-        TransitionInstance.INSTANCE.getInstance().transit("/sample/Scenes/LogIN.fxml");
+        FXMLTransition.getInstance().transit("/sample/Scenes/LogIN.fxml");
 
 
 

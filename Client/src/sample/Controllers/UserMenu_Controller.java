@@ -1,23 +1,20 @@
-package sample.Controllers;/*
 package sample.Controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import command.OrdersProcessing;
-import model.Order;
-import connection.TransitionInstance;
-import connection.ConnectInstance;
-import command.client.LogIn;
+import command.client.AllClients;
+import connection.Connection;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import sample.AlertBox;
+import model.Client;
+
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
 
 public class UserMenu_Controller {
 
@@ -32,49 +29,10 @@ public class UserMenu_Controller {
     private URL location;
 
     @FXML
-    private TableView<Order> ClientTable;
-
-    @FXML
-    private TableColumn<Order, Integer> orderNumber;
-
-    @FXML
-    private TableColumn<Order, String> orderDate;
-
-    @FXML
-    private TableColumn<Order, String> orderService;
-
-    @FXML
-    private TableColumn<Order, String> orderMaster;
-
-    @FXML
-    private TableColumn<Order, String> orderMaterial;
-
-    @FXML
-    private TableColumn<Order, Integer> orderPrice;
+    private TableView<Client> ClientTable;
 
     @FXML
     private Button updateBttn;
-
-    @FXML
-    private Button newOrderButton;
-
-    @FXML
-    private Button orderDeleter;
-
-    @FXML
-    void createNewOrder(ActionEvent event) {
-       //newOrderButton.getScene().getWindow().hide();
-       TransitionInstance.INSTANCE.getInstance().transit("/sample/Scenes/OrderAdding.fxml");
-
-    }
-
-    @FXML
-    void deleteOrder(ActionEvent event){
-        if(ClientTable.getSelectionModel() == null){
-            AlertBox.display("WARNING", "Выберите запись!");
-        }
-        else ConnectInstance.INSTANCE.getInstance().post("DeleteOrder "+ClientTable.getSelectionModel().getSelectedItem().getOrderId());
-    }
 
     @FXML
     void updateTable(ActionEvent event) {
@@ -83,27 +41,18 @@ public class UserMenu_Controller {
 
     @FXML
     void initialize() {
-        clientName.setText(LogIn.clientName + " " + LogIn.clientLastName);
         fillTable();
     }
 
 
-    void fillTable(){
-
-        String name = LogIn.clientName;
-        String lastName = LogIn.clientLastName;
-        ConnectInstance.INSTANCE.getInstance().post("OrdersByClientId "+name +" "+lastName);
-        ObservableList<Order> orders = OrdersProcessing.returnOrders();
-
-        orderNumber.setCellValueFactory(new PropertyValueFactory<>("orderId"));
-        orderDate.setCellValueFactory(new PropertyValueFactory<>("orderDate"));
-        orderService.setCellValueFactory(new PropertyValueFactory<>("serviceName"));
-        orderMaster.setCellValueFactory(new PropertyValueFactory<>("masterName"));
-        orderMaterial.setCellValueFactory(new PropertyValueFactory<>("materialName"));
-        orderPrice.setCellValueFactory(new PropertyValueFactory<>("orderPrice"));
-
-        ClientTable.setItems(orders);
+    void fillTable() {
+        AllClients clients = new AllClients();
+        Connection.getInstance().post("clientsTable ");
+        clients.processServerMessage();
+        List<Client> clients1 = clients.getClients();
+        ObservableList<Client> clientObservableList = FXCollections.observableList(clients1);
+        ClientTable.setItems(clientObservableList);
     }
 }
 
-*/
+

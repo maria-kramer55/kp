@@ -1,8 +1,8 @@
 package sample.Controllers;
 
-import command.Connection;
 import command.client.LogIn;
-import connection.TransitionInstance;
+import connection.Connection;
+import connection.FXMLTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,24 +19,22 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LogIN_Controller {
-
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
     private Button LogIN_Button;
-
     @FXML
     private TextField LogIN_login;
-
     @FXML
     private PasswordField LogIN_Password;
-
     @FXML
     private Button Registration_Button;
+
+    public LogIN_Controller() {
+        Connection.getInstance();
+    }
 
     @FXML
     public void logIn(ActionEvent event) {
@@ -46,7 +44,7 @@ public class LogIN_Controller {
         LogIn logIn = new LogIn();
         logIn.processServerMessage();
         LogIN_Button.getScene().getWindow().hide();
-        TransitionInstance.INSTANCE.getInstance().transit("/sample/Scenes/DirectorWork.fxml");
+        FXMLTransition.getInstance().transit("/sample/Scenes/UserMenu.fxml");
     }
 
     @FXML

@@ -7,8 +7,15 @@ import model.Client;
 import java.util.List;
 
 public class AllClients implements Command {
+    private List<Client> clients;
+
     @Override
     public void processServerMessage() {
-        List<Client> clients = (List<Client>) ServerMessageUtil.get();
+        clients = (List<Client>) ServerMessageUtil.get();
+    }
+
+    public List<Client> getClients() {
+        processServerMessage();
+        return clients;
     }
 }

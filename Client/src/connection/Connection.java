@@ -1,4 +1,4 @@
-package command;
+package connection;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -16,13 +16,14 @@ public class Connection {
     private ObjectInputStream inputStream;
 
     private Connection() {
-        connect();
+
     }
 
     public static Connection getInstance() {
         lock.lock();
         if (!atomicBoolean.get()) {
             instance = new Connection();
+            instance.connect();
             atomicBoolean.set(true);
         }
         lock.unlock();
