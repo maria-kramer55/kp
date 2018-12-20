@@ -4,11 +4,30 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Connection {
+    private static Connection instance;
+    private static ReentrantLock lock = new ReentrantLock();
+    private static AtomicBoolean atomicBoolean = new AtomicBoolean(false);
     private Socket socket;
     private ObjectOutputStream outputStream;
     private ObjectInputStream inputStream;
+
+    private Connection() {
+        connect();
+    }
+
+    public static Connection getInstance() {
+        lock.lock();
+        if (!atomicBoolean.get()) {
+            instance = new Connection();
+            atomicBoolean.set(true);
+        }
+        lock.unlock();
+        return instance;
+    }
 
     public void connect() {
         try {

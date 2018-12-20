@@ -1,6 +1,6 @@
 package sample.Controllers;
 
-import connection.ConnectInstance;
+import command.Connection;
 import connection.TransitionInstance;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,7 +49,7 @@ public class SignUP_Controller {
         }
         else {gender = "Female";}
 
-        ConnectInstance.INSTANCE.getInstance().post("sighUp "+signUpName.getText()+" "+signUpLastName.getText()+" "+gender+" "+signUpLogin.getText()+" "+signUpPassword.getText());
+        Connection.getInstance().post("sighUp "+signUpName.getText()+" "+signUpLastName.getText()+" "+gender+" "+signUpLogin.getText()+" "+signUpPassword.getText());
         signUpCheckBoxFemale.getScene().getWindow().hide();
         TransitionInstance.INSTANCE.getInstance().transit("/sample/Scenes/LogIN.fxml");
 

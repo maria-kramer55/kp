@@ -1,8 +1,8 @@
 package sample.Controllers;
 
-import connection.ConnectInstance;
-import connection.TransitionInstance;
+import command.Connection;
 import command.client.LogIn;
+import connection.TransitionInstance;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,7 +41,7 @@ public class LogIN_Controller {
     @FXML
     public void logIn(ActionEvent event) {
         if (LogIN_login.getText() != null && LogIN_Password.getText() != null) {
-            ConnectInstance.INSTANCE.getInstance().post("logIn " + LogIN_login.getText().trim() + " " + LogIN_Password.getText().trim());
+            Connection.getInstance().post("logIn " + LogIN_login.getText().trim() + " " + LogIN_Password.getText().trim());
         } else AlertBox.display("WARNING", "Заполните все поля!");
         LogIn logIn = new LogIn();
         logIn.processServerMessage();
@@ -55,7 +55,6 @@ public class LogIN_Controller {
 
         FXMLLoader load = new FXMLLoader();
         load.setLocation(getClass().getResource("/sample/Scenes/SignUP.fxml"));
-
         try {
             load.load();
         } catch (IOException e) {
@@ -70,7 +69,7 @@ public class LogIN_Controller {
 
     @FXML
     void initialize() {
-        ConnectInstance.INSTANCE.getInstance().connect();
+        Connection.getInstance();
     }
 }
 
