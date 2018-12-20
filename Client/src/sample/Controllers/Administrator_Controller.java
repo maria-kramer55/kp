@@ -1,17 +1,18 @@
+package sample.Controllers;/*
 package sample.Controllers;
 
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-import Client.OrdersProcessing;
+import client.OrdersProcessing;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import Entity.Order;
+import model.Order;
 import Enum.ConnectInstance;
 import Enum.TransitionInstance;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -76,7 +77,7 @@ public class Administrator_Controller {
     @FXML
     void DeleteOrder(ActionEvent event) {
         if (ClientTable.getSelectionModel().getSelectedItem() != null) {
-            ConnectInstance.INSTANCE.getInstance().Send("DeleteOrder "+ClientTable.getSelectionModel().getSelectedItem().getOrderId());
+            ConnectInstance.INSTANCE.getInstance().post("DeleteOrder "+ClientTable.getSelectionModel().getSelectedItem().getOrderId());
             AlertBox.display("SUCCESS", "Запись успешно удалена!");
         }
         else AlertBox.display("WARNING","Выберите поле!");
@@ -95,7 +96,7 @@ public class Administrator_Controller {
     }
 
     void fillTable(){
-        ConnectInstance.INSTANCE.getInstance().Send("OrderTableCreate .");
+        ConnectInstance.INSTANCE.getInstance().post("OrderTableCreate .");
 
         ObservableList<Order> orders = OrdersProcessing.returnOrders();
 
@@ -113,3 +114,4 @@ public class Administrator_Controller {
 }
 
 
+*/

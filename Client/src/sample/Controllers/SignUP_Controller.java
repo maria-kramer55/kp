@@ -1,8 +1,5 @@
 package sample.Controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import Enum.ConnectInstance;
 import Enum.TransitionInstance;
 import javafx.event.ActionEvent;
@@ -11,6 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class SignUP_Controller {
 
@@ -49,7 +49,7 @@ public class SignUP_Controller {
         }
         else {gender = "Female";}
 
-        ConnectInstance.INSTANCE.getInstance().Send("sighUp "+signUpName.getText()+" "+signUpLastName.getText()+" "+gender+" "+signUpLogin.getText()+" "+signUpPassword.getText());
+        ConnectInstance.INSTANCE.getInstance().post("sighUp "+signUpName.getText()+" "+signUpLastName.getText()+" "+gender+" "+signUpLogin.getText()+" "+signUpPassword.getText());
         signUpCheckBoxFemale.getScene().getWindow().hide();
         TransitionInstance.INSTANCE.getInstance().transit("/sample/Scenes/LogIN.fxml");
 

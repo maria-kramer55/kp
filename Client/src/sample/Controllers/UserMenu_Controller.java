@@ -1,13 +1,14 @@
+package sample.Controllers;/*
 package sample.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import Client.OrdersProcessing;
-import Entity.Order;
+import client.OrdersProcessing;
+import model.Order;
 import Enum.TransitionInstance;
 import Enum.ConnectInstance;
-import Client.LogIn;
+import client.LogIn;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -72,7 +73,7 @@ public class UserMenu_Controller {
         if(ClientTable.getSelectionModel() == null){
             AlertBox.display("WARNING", "Выберите запись!");
         }
-        else ConnectInstance.INSTANCE.getInstance().Send("DeleteOrder "+ClientTable.getSelectionModel().getSelectedItem().getOrderId());
+        else ConnectInstance.INSTANCE.getInstance().post("DeleteOrder "+ClientTable.getSelectionModel().getSelectedItem().getOrderId());
     }
 
     @FXML
@@ -91,7 +92,7 @@ public class UserMenu_Controller {
 
         String name = LogIn.clientName;
         String lastName = LogIn.clientLastName;
-        ConnectInstance.INSTANCE.getInstance().Send("OrdersByClientId "+name +" "+lastName);
+        ConnectInstance.INSTANCE.getInstance().post("OrdersByClientId "+name +" "+lastName);
         ObservableList<Order> orders = OrdersProcessing.returnOrders();
 
         orderNumber.setCellValueFactory(new PropertyValueFactory<>("orderId"));
@@ -105,3 +106,4 @@ public class UserMenu_Controller {
     }
 }
 
+*/

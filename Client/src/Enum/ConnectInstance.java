@@ -1,6 +1,6 @@
 package Enum;
 
-import Client.Connection;
+import client.Connection;
 
 public enum ConnectInstance {
     INSTANCE;

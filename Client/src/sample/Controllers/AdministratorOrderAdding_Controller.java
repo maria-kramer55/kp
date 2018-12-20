@@ -1,12 +1,12 @@
+package sample.Controllers;/*
 package sample.Controllers;
 
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-import Client.LogIn;
-import Client.MaterialsPrcessing;
-import Client.ServicesProcessing;
+import client.MaterialsPrcessing;
+import client.ServicesProcessing;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +16,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import Enum.ConnectInstance;
-import Enum.TransitionInstance;
 import sample.AlertBox;
 
 public class AdministratorOrderAdding_Controller {
@@ -68,7 +67,7 @@ public class AdministratorOrderAdding_Controller {
     void registService(ActionEvent event) {
         LocalDate date = datePicker.getValue();
         if (date != null && clientName.getText() != null && clientLastName.getText() != null && serviceComboBox.getValue() != null) {
-            ConnectInstance.INSTANCE.getInstance().Send("AddOrder " + date + " " + clientName.getText() + " " + clientLastName.getText() + " " + serviceComboBox.getValue() + " " + materialsComboBox.getValue());
+            ConnectInstance.INSTANCE.getInstance().post("AddOrder " + date + " " + clientName.getText() + " " + clientLastName.getText() + " " + serviceComboBox.getValue() + " " + materialsComboBox.getValue());
             AlertBox.display("SUCCESS", "Запись успешно добавлена!");
         }
         else AlertBox.display("WARNING", "Заполните поля!!");
@@ -77,15 +76,16 @@ public class AdministratorOrderAdding_Controller {
 
     @FXML
     void initialize() {
-        ConnectInstance.INSTANCE.getInstance().Send("returnServices .");
+        ConnectInstance.INSTANCE.getInstance().post("returnServices .");
         serviceComboBox.setItems(ServicesProcessing.services());
 
         servicePrice.setVisible(false);
 
-        ConnectInstance.INSTANCE.getInstance().Send("MaterialTableCreate .");
+        ConnectInstance.INSTANCE.getInstance().post("MaterialTableCreate .");
         materialsComboBox.setItems(FXCollections.observableArrayList(MaterialsPrcessing.materialByService()));
 
 
     }
 }
 
+*/

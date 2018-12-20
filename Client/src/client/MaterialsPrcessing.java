@@ -1,6 +1,7 @@
-package Client;
+package client;/*
+package client;
 
-import Entity.Material;
+import model.Material;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import Enum.ConnectInstance;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 public class MaterialsPrcessing {
 
     public static ObservableList<Material> returnAllMaterials(){
-        ArrayList<Material> list = ConnectInstance.INSTANCE.getInstance().receiveMaterialTable();
+        ArrayList<Material> list = (ArrayList<Material>) ConnectInstance.INSTANCE.getInstance().receiveWorkerTable();
         ObservableList<Material> materials = FXCollections.observableArrayList(list);
         return materials;
     }
@@ -24,3 +25,4 @@ public class MaterialsPrcessing {
     }
 
 }
+*/

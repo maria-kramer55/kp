@@ -1,14 +1,13 @@
+package sample.Controllers;/*
 package sample.Controllers;
 
 import java.net.URL;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-import Client.LogIn;
-import Client.MaterialsPrcessing;
-import Client.ServicesProcessing;
-import Entity.Service;
+import client.LogIn;
+import client.MaterialsPrcessing;
+import client.ServicesProcessing;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +16,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import Enum.ConnectInstance;
-import Enum.TransitionInstance;
 
 public class OrderAdding_Controller {
 
@@ -66,19 +64,20 @@ public class OrderAdding_Controller {
     void registService(ActionEvent event) {
        LocalDate date =  datePicker.getValue();
 
-        ConnectInstance.INSTANCE.getInstance().Send("AddOrder "+date+" "+LogIn.clientName+" "+LogIn.clientLastName+" "+serviceComboBox.getValue()+" "+materialsComboBox.getValue());
+        ConnectInstance.INSTANCE.getInstance().post("AddOrder "+date+" "+LogIn.clientName+" "+LogIn.clientLastName+" "+serviceComboBox.getValue()+" "+materialsComboBox.getValue());
     }
 
     @FXML
     void initialize() {
         clientName.setText(LogIn.clientName + " " + LogIn.clientLastName);
-        ConnectInstance.INSTANCE.getInstance().Send("returnServices .");
+        ConnectInstance.INSTANCE.getInstance().post("returnServices .");
         serviceComboBox.setItems(ServicesProcessing.services());
 
         servicePrice.setVisible(false);
 
-        ConnectInstance.INSTANCE.getInstance().Send("MaterialTableCreate .");
+        ConnectInstance.INSTANCE.getInstance().post("MaterialTableCreate .");
         materialsComboBox.setItems(FXCollections.observableArrayList(MaterialsPrcessing.materialByService()));
 
     }
 }
+*/

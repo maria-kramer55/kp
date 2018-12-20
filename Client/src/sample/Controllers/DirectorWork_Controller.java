@@ -1,17 +1,15 @@
+package sample.Controllers;/*
 package sample.Controllers;
 
 import java.net.URL;
-import java.util.Date;
 import java.util.ResourceBundle;
 
-import Client.MaterialsPrcessing;
-import Client.OrdersProcessing;
-import Client.ServicesProcessing;
-import Client.WorkersProcessing;
-import Entity.Material;
-import Entity.Order;
-import Entity.Service;
-import Entity.Worker;
+import client.MaterialsPrcessing;
+import client.ServicesProcessing;
+import client.WorkersProcessing;
+import model.Material;
+import model.Service;
+import model.Worker;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
@@ -20,7 +18,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import Enum.ConnectInstance;
-import Enum.TransitionInstance;
 import sample.AlertBox;
 
 
@@ -118,7 +115,7 @@ public class DirectorWork_Controller {
     @FXML
     void deleteMaterial(ActionEvent event) {
         if(materialTable.getSelectionModel() != null){
-            ConnectInstance.INSTANCE.getInstance().Send("DeleteMaterial "+materialTable.getSelectionModel().getSelectedItem().getMaterialId());
+            ConnectInstance.INSTANCE.getInstance().post("DeleteMaterial "+materialTable.getSelectionModel().getSelectedItem().getMaterialId());
             AlertBox.display("SUCCESS", "Поле успешно удалено!");
         }else AlertBox.display("WARNING", "Выберите поле!");
     }
@@ -126,7 +123,7 @@ public class DirectorWork_Controller {
     @FXML
     void deleteService(ActionEvent event) {
         if(serviceTable.getSelectionModel() != null){
-            ConnectInstance.INSTANCE.getInstance().Send("DeleteService "+serviceTable.getSelectionModel().getSelectedItem().getServiceId());
+            ConnectInstance.INSTANCE.getInstance().post("DeleteService "+serviceTable.getSelectionModel().getSelectedItem().getServiceId());
             AlertBox.display("SUCCESS", "Поле успешно удалено!");
         }else AlertBox.display("WARNING", "Выберите поле!");
     }
@@ -134,7 +131,7 @@ public class DirectorWork_Controller {
     @FXML
     void deleteWorker(ActionEvent event) {
         if (workersTable.getSelectionModel()!=null){
-            ConnectInstance.INSTANCE.getInstance().Send("DeleteWorker "+workersTable.getSelectionModel().getSelectedItem().getWorkerNumber());
+            ConnectInstance.INSTANCE.getInstance().post("DeleteWorker "+workersTable.getSelectionModel().getSelectedItem().getWorkerNumber());
             AlertBox.display("SUCCESS", "Поле успешно удалено!");
         }else AlertBox.display("WARNING", "Выберите поле!");
 
@@ -163,17 +160,18 @@ public class DirectorWork_Controller {
     }
 
     void fillTable(){
-        ConnectInstance.INSTANCE.getInstance().Send("WorkerTableCreate .");
+        ConnectInstance.INSTANCE.getInstance().post("WorkerTableCreate .");
         ObservableList<Worker> workers = WorkersProcessing.returnAllWorkers();
         workersTable.setItems(workers);
 
-        ConnectInstance.INSTANCE.getInstance().Send("returnServices .");
+        ConnectInstance.INSTANCE.getInstance().post("returnServices .");
         ObservableList<Service> services = ServicesProcessing.createTable();
         serviceTable.setItems(services);
 
-        ConnectInstance.INSTANCE.getInstance().Send("MaterialTableCreate .");
+        ConnectInstance.INSTANCE.getInstance().post("MaterialTableCreate .");
         ObservableList<Material> materials = MaterialsPrcessing.returnAllMaterials();
         materialTable.setItems(materials);
     }
 }
 
+*/

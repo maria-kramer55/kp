@@ -1,6 +1,7 @@
-package Client;
+package client;/*
+package client;
 
-import Entity.Service;
+import model.Service;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import Enum.ConnectInstance;
@@ -11,7 +12,7 @@ public class ServicesProcessing {
 
     public static ObservableList<Service> createTable() {
 
-        ArrayList<Service> table = ConnectInstance.INSTANCE.getInstance().receiveServicesTable();
+        ArrayList<Service> table = (ArrayList<Service>) ConnectInstance.INSTANCE.getInstance().receiveWorkerTable();
         ObservableList<Service> clientsTable = FXCollections.observableArrayList(table);
         return clientsTable;
     }
@@ -26,3 +27,4 @@ public class ServicesProcessing {
         return str;
     }
 }
+*/
