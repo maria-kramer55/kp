@@ -13,14 +13,14 @@ public class CommandHandler {
 
     private UserDAO dao = new UserDAO();
 
+    private ObjectInputStream inputStream;
+    private ObjectOutputStream outputStream;
 
-    private ObjectInputStream in;
-    private ObjectOutputStream out;
-
-    CommandHandler(ObjectInputStream in, ObjectOutputStream out) {
-        this.in = in;
-        this.out = out;
+    CommandHandler(ObjectInputStream inputStream, ObjectOutputStream outputStream) {
+        this.inputStream = inputStream;
+        this.outputStream = outputStream;
     }
+
     void handle(String clientMessage) throws DAOException {
         System.out.println(clientMessage);
         String[] message = clientMessage.split(" ", 2);
@@ -28,7 +28,6 @@ public class CommandHandler {
         String comand = message[1];
         switch (comandNumberStr) {
             case "logIn": {
-
                 String[] values = comand.split(" ", 2);
                 Client client1 = dao.getAllUsers().stream().filter(client -> {
                     if (client.getLogin().equals(values[0]) && client.getPassword().equals(values[1])) {
@@ -36,33 +35,48 @@ public class CommandHandler {
                     }
                     return false;
                 }).findFirst().get();
-                try {
-                    out.writeObject(client1);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                post(client1);
                 break;
             }
+
             case "sighUp": {
                 String[] valuesSighUp = comand.split(" ", 5);
                 Client client = new Client();
-                client.setId(valuesSighUp[0]);
+                client.setId(Long.parseLong(valuesSighUp[0]));
                 client.setLogin(valuesSighUp[1]);
                 client.setPassword(valuesSighUp[2]);
                 client.setFirstName(valuesSighUp[3]);
                 client.setLastName(valuesSighUp[4]);
                 client.setPhoneNumber(valuesSighUp[5]);
                 dao.create(client);
+                post(dao.getAllUsers());
                 break;
             }
             case "clientsTable": {
                 try {
-                    out.writeObject(dao.getAllUsers());
+                    outputStream.writeObject(dao.getAllUsers());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 break;
             }
         }
+    }
+
+    private void post(Object obj) {
+        try {
+            outputStream.writeObject(obj);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Object get() {
+        try {
+            return inputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
